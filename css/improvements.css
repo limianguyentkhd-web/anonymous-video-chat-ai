@@ -1,0 +1,635 @@
+/* ===================================================
+   SAFECONNECT — UI IMPROVEMENTS OVERRIDE
+   Cải thiện bố trí & giao diện
+=================================================== */
+
+/* ---- 0. BG-GLOW FIX — hào quang nền đúng cách ---- */
+.bg-glow {
+    position: fixed !important;
+    border-radius: 50% !important;
+    filter: blur(80px) !important;
+    opacity: 0.18 !important;
+    pointer-events: none !important;
+    z-index: 0 !important;
+}
+
+.bg-glow-1 {
+    width: 700px;
+    height: 700px;
+    background: radial-gradient(circle, #ff4666 0%, #ff8c42 60%, transparent 100%) !important;
+    top: -280px !important;
+    left: -200px !important;
+    animation: glowFloat1 12s ease-in-out infinite alternate;
+}
+
+.bg-glow-2 {
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, #ec4899 0%, #a855f7 60%, transparent 100%) !important;
+    bottom: -150px !important;
+    right: -150px !important;
+    animation: glowFloat2 15s ease-in-out infinite alternate;
+}
+
+.bg-glow-3 {
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, #7c3aed 0%, #3b82f6 60%, transparent 100%) !important;
+    top: 40% !important;
+    left: 40% !important;
+    transform: translate(-50%, -50%) !important;
+    animation: glowFloat3 10s ease-in-out infinite alternate;
+}
+
+@keyframes glowFloat1 {
+    from { transform: translate(0, 0) scale(1); }
+    to   { transform: translate(30px, 20px) scale(1.05); }
+}
+
+@keyframes glowFloat2 {
+    from { transform: translate(0, 0) scale(1); }
+    to   { transform: translate(-20px, -30px) scale(1.08); }
+}
+
+@keyframes glowFloat3 {
+    from { transform: translate(-50%, -50%) scale(1); }
+    to   { transform: translate(-50%, -50%) scale(1.12); }
+}
+
+/* ---- 1. HEADER — gọn hơn, cân đối hơn ---- */
+.header-container {
+    padding: 10px 28px;
+    gap: 16px;
+}
+
+.nav-menu {
+    gap: 2px;
+    padding: 4px;
+}
+
+.nav-item {
+    padding: 7px 14px;
+    font-size: 13px;
+    gap: 6px;
+}
+
+.header-status {
+    gap: 8px;
+}
+
+/* Ẩn badge SSL trên màn nhỏ để tránh chật */
+.connection-badge { display: none !important; }
+@media (min-width: 1300px) {
+    .connection-badge { display: flex !important; }
+}
+
+/* ---- 2. PORTAL GRID — layout linh hoạt hơn ---- */
+.portal-grid {
+    display: grid;
+    grid-template-columns: 420px 1fr;
+    gap: 24px;
+    margin-bottom: 28px;
+    align-items: start;
+}
+
+/* Profile card — scroll nội bộ nếu dài */
+.profile-card {
+    max-height: calc(100vh - 120px);
+    overflow-y: auto;
+    overflow-x: hidden;
+    scrollbar-width: thin;
+}
+
+.profile-card .card-header {
+    padding: 18px 22px 14px;
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    background: rgba(22,24,35,0.98);
+}
+
+.profile-card .card-header h2 {
+    font-size: 16px;
+}
+
+.profile-card .card-body {
+    padding: 18px 22px;
+}
+
+/* Action card — hero section gọn hơn */
+.action-card .portal-hero {
+    padding: 20px 28px 10px;
+}
+
+.portal-hero h1 {
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+.portal-hero p {
+    font-size: 13px;
+}
+
+/* Matching hub — chiều cao hợp lý */
+.matching-hub {
+    min-height: 300px;
+}
+
+/* ---- 3. FORM — khoảng cách đẹp hơn ---- */
+.form-group {
+    margin-bottom: 14px;
+}
+
+.form-row {
+    gap: 12px;
+}
+
+label {
+    font-size: 11px;
+    margin-bottom: 5px;
+}
+
+.input-wrapper input,
+.input-wrapper select {
+    padding: 9px 12px 9px 38px;
+    font-size: 13px;
+    border-radius: 10px;
+}
+
+/* ---- 4. INTERESTS TAGS — wrap đẹp hơn ---- */
+.interests-tags {
+    gap: 6px;
+}
+
+.tag {
+    padding: 5px 11px;
+    font-size: 11.5px;
+}
+
+/* ---- 5. ADVANCED FILTERS BOX — padding hợp lý ---- */
+.advanced-filters-box {
+    background: rgba(255,255,255,0.02);
+    border-radius: 12px;
+    padding: 14px !important;
+    border: 1px solid rgba(255,255,255,0.06) !important;
+    margin-top: 16px !important;
+}
+
+/* ---- 6. VERIFICATION BOX ---- */
+.verification-box {
+    margin-top: 16px;
+    padding: 13px 16px;
+    border-radius: 12px;
+}
+
+/* ---- 7. FEATURES SUMMARY GRID — đẹp hơn ---- */
+.features-summary-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+    margin-top: 4px;
+}
+
+.feat-summary-card {
+    padding: 22px 20px;
+    border-radius: 16px;
+    background: linear-gradient(145deg, rgba(22,24,35,0.95) 0%, rgba(18,20,30,0.98) 100%);
+}
+
+.feat-summary-card .feat-icon {
+    font-size: 24px;
+    margin-bottom: 12px;
+}
+
+.feat-summary-card h3 {
+    font-size: 14px;
+    margin-bottom: 7px;
+}
+
+.feat-summary-card p {
+    font-size: 12px;
+    line-height: 1.65;
+    color: rgba(124, 131, 170, 0.9);
+}
+
+/* Top-border gradient on hover */
+.feat-summary-card:nth-child(1)::before { background: linear-gradient(90deg, #f87171, #fb923c); opacity: 0; transition: opacity .3s; }
+.feat-summary-card:nth-child(2)::before { background: linear-gradient(90deg, #f87171, #fb923c); opacity: 0; transition: opacity .3s; }
+.feat-summary-card:nth-child(3)::before { background: linear-gradient(90deg, #22c55e, #10b981); opacity: 0; transition: opacity .3s; }
+.feat-summary-card:hover::before { opacity: 1 !important; }
+
+/* ---- 8. SWIPE MATCH CARD — đẹp hơn ---- */
+.swipe-match-card {
+    background: rgba(22,24,35,0.95);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 20px;
+    overflow: hidden;
+    width: 100%;
+    max-width: 340px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+}
+
+/* ---- 9. KPI GRID — 3 cột x 2 hàng đẹp hơn 4+2 ---- */
+.kpi-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.kpi-card {
+    padding: 18px 16px;
+    gap: 14px;
+    border-radius: 16px;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.kpi-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 16px 40px rgba(0,0,0,0.45);
+}
+
+.kpi-icon {
+    width: 48px;
+    height: 48px;
+    font-size: 20px;
+    border-radius: 12px;
+    flex-shrink: 0;
+}
+
+.kpi-value {
+    font-size: 22px;
+}
+
+/* ---- 10. ADMIN CHARTS GRID — tỷ lệ cân hơn ---- */
+.admin-charts-grid {
+    grid-template-columns: 1.6fr 1fr 1fr;
+    gap: 18px;
+    margin-bottom: 22px;
+}
+
+.chart-card {
+    height: 300px;
+}
+
+.chart-pie-container {
+    width: 160px;
+    height: 160px;
+}
+
+/* ---- 11. AUTO-BAN STATS ---- */
+.auto-ban-stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+}
+
+@media (min-width: 1200px) {
+    .auto-ban-stats-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+/* ---- 12. GLASS CARD — border đẹp hơn ---- */
+.glass-card {
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 18px;
+}
+
+.glass-card:hover {
+    border-color: rgba(255,70,102,0.18);
+    box-shadow: 0 12px 40px rgba(0,0,0,0.4), 0 0 0 1px rgba(255,70,102,0.12);
+}
+
+/* ---- 13. CARD HEADER — clean hơn ---- */
+.card-header {
+    padding: 18px 22px;
+}
+
+.card-header h2 {
+    font-size: 16px;
+}
+
+.card-header h3 {
+    font-size: 15px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.card-body {
+    padding: 20px 22px;
+}
+
+/* ---- 14. CHAT SECTION — sidebar vừa vặn hơn ---- */
+.chat-grid {
+    grid-template-columns: 1fr 420px;
+    gap: 20px;
+}
+
+/* ---- 15. LOUNGE SECTION ---- */
+.lounge-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.lounge-header-card .card-body {
+    padding: 16px 22px;
+}
+
+.lounge-controls {
+    display: flex;
+    gap: 14px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.lounge-search-bar {
+    flex: 1;
+    min-width: 200px;
+}
+
+.lounge-filters {
+    display: flex;
+    gap: 10px;
+}
+
+.lounge-filter-group select {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.1);
+    color: var(--text-main);
+    padding: 8px 12px;
+    border-radius: 10px;
+    font-size: 13px;
+    font-family: var(--font-body);
+    outline: none;
+    cursor: pointer;
+}
+
+/* ---- 16. APP CONTAINER padding tốt hơn ---- */
+.app-container {
+    padding: 22px 28px;
+}
+
+/* ---- 17. HISTORY SECTION — cards đẹp hơn ---- */
+.history-item {
+    padding: 14px 18px;
+    border-radius: 14px;
+    background: rgba(255,255,255,0.025);
+    border: 1px solid rgba(255,255,255,0.06);
+}
+
+.history-item:hover {
+    background: rgba(255,255,255,0.045);
+    border-color: rgba(255,70,102,0.15);
+    transform: translateX(3px);
+    transition: all 0.2s ease;
+}
+
+/* ---- 18. TOAST — bottom right thay vì left ---- */
+.toast-container {
+    bottom: 20px;
+    left: auto;
+    right: 24px;
+    max-width: 340px;
+}
+
+.toast {
+    border-radius: 14px;
+    padding: 14px 16px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.5);
+}
+
+/* ---- 19. MODAL — centered đẹp hơn ---- */
+.modal-container {
+    border-radius: 20px;
+    box-shadow: 0 30px 80px rgba(0,0,0,0.6);
+}
+
+/* ---- 20. FOOTER — compact & clean ---- */
+.main-footer {
+    margin-top: 30px;
+    padding-top: 30px;
+}
+
+.footer-container {
+    gap: 30px;
+    padding: 0 28px;
+}
+
+/* ---- 21. BTN IMPROVEMENTS ---- */
+.btn-primary {
+    letter-spacing: 0.2px;
+}
+
+.btn-lg {
+    padding: 14px 32px;
+    font-size: 15px;
+}
+
+/* ---- 22. SEARCH ANIMATION — tách biệt ---- */
+.search-animation {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* ---- 23. AI GUARD CARD — bảng đẹp hơn ---- */
+.safety-meters-grid {
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+.safety-meter-box {
+    padding: 12px;
+    border-radius: 12px;
+}
+
+.behavior-analysis-box {
+    padding: 12px;
+    border-radius: 12px;
+}
+
+.behavior-row {
+    padding: 6px 10px;
+    border-radius: 8px;
+}
+
+.simulation-triggers-box {
+    padding: 12px;
+    border-radius: 12px;
+}
+
+/* ---- 24. CALL CONTROLS BAR ---- */
+.call-controls-bar {
+    height: 68px;
+    padding: 0 20px;
+    border-radius: 16px;
+}
+
+/* ---- 25. AR FILTERS CAROUSEL ---- */
+.ar-filters-carousel-container {
+    border-radius: 12px !important;
+    padding: 8px 12px !important;
+}
+
+.ar-filter-item {
+    padding: 5px 12px !important;
+    font-size: 12px !important;
+    border-radius: 20px !important;
+    background: rgba(255,255,255,0.08) !important;
+    border: 1px solid rgba(255,255,255,0.1) !important;
+    color: var(--text-normal) !important;
+    transition: all 0.2s ease !important;
+    white-space: nowrap;
+}
+
+.ar-filter-item:hover, .ar-filter-item.active {
+    background: var(--primary) !important;
+    border-color: var(--primary) !important;
+    color: white !important;
+}
+
+/* ---- 26. CALL TYPE TOGGLE đẹp hơn ---- */
+.call-type-toggle {
+    margin-top: 14px;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    padding: 4px;
+    border-radius: 30px;
+    display: inline-flex;
+    gap: 4px;
+}
+
+.call-type-btn {
+    padding: 7px 18px;
+    font-size: 12.5px;
+}
+
+/* ---- 27. RADAR — khoảng cách đẹp hơn ---- */
+.matching-graphics {
+    margin-bottom: 28px;
+    height: 180px;
+}
+
+/* ---- 28. LOUNGE PROFILE GRID ---- */
+.lounge-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+    gap: 16px;
+}
+
+/* ---- 29. SCROLL smooth ---- */
+html {
+    scroll-behavior: smooth;
+}
+
+/* ---- 30. RESPONSIVE ADJUSTMENTS ---- */
+@media (max-width: 1280px) {
+    .portal-grid {
+        grid-template-columns: 380px 1fr;
+    }
+    .kpi-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    .admin-charts-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+    .admin-charts-grid .chart-card:last-child {
+        grid-column: span 2;
+    }
+}
+
+@media (max-width: 1024px) {
+    .portal-grid {
+        grid-template-columns: 1fr;
+    }
+    .chat-grid {
+        grid-template-columns: 1fr;
+    }
+    .features-summary-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+    .kpi-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .nav-menu {
+        gap: 1px;
+    }
+    .nav-item {
+        padding: 6px 10px;
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 768px) {
+    .header-container {
+        padding: 10px 16px;
+    }
+    .app-container {
+        padding: 16px;
+    }
+    .features-summary-grid {
+        grid-template-columns: 1fr;
+    }
+    .kpi-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+    .admin-charts-grid {
+        grid-template-columns: 1fr;
+    }
+    .auto-ban-stats-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+    .footer-container {
+        grid-template-columns: 1fr 1fr;
+    }
+    .online-counter-badge span:not(.online-dot) {
+        display: none;
+    }
+}
+
+/* ---- 31. ANIMATE sections ---- */
+.app-section.active {
+    animation: sectionFadeSlide 0.35s ease-out forwards;
+}
+
+@keyframes sectionFadeSlide {
+    from { opacity: 0; transform: translateY(8px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ---- 32. Portal hero gradient text ---- */
+.portal-hero h1 {
+    background: linear-gradient(135deg, #ff4666 0%, #ff8c42 60%, #ffcba0 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* ---- 33. BTN START MATCH pulse đẹp hơn ---- */
+#btn-start-match {
+    min-width: 260px;
+    font-size: 15px;
+    padding: 16px 40px;
+    border-radius: 50px;
+    background: linear-gradient(135deg, #ff4666 0%, #ff8c42 100%);
+    box-shadow: 0 8px 32px rgba(255,70,102,0.4), 0 2px 8px rgba(255,140,66,0.3);
+    letter-spacing: 0.5px;
+}
+
+#btn-start-match:hover {
+    transform: translateY(-3px) scale(1.03);
+    box-shadow: 0 14px 40px rgba(255,70,102,0.5), 0 4px 12px rgba(255,140,66,0.4);
+}
+
+/* ---- 34. PROFILE CARD scrollbar ---- */
+.profile-card::-webkit-scrollbar { width: 4px; }
+.profile-card::-webkit-scrollbar-track { background: transparent; }
+.profile-card::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 4px; }
+
+/* ---- 35. SELECT đẹp hơn ---- */
+select option {
+    background: #1a1c28;
+    color: #e2e4ef;
+}

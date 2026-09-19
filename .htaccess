@@ -1,0 +1,10 @@
+# Passenger Configuration
+PassengerAppType node
+PassengerStartupFile server.js
+PassengerMaxPoolSize 1
+PassengerMinInstances 1
+
+# Optional: Force HTTPS (uncomment if you have SSL)
+# RewriteEngine On
+# RewriteCond %{HTTPS} off
+# RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
