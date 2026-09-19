@@ -1,6 +1,7 @@
-﻿/**
+/**
  * SafeConnect - Hybrid Audio Threat Classifier & Safety Shield (Web Audio API + TensorFlow.js)
  * Author: SafeConnect AI Team
+ * Version: 1.1.0 - AI Audio Classifier Module
  * Features:
  * - Realtime Acoustic Feature Extraction (RMS, Decibel, High-Frequency Ratio / Scream Detector)
  * - TensorFlow.js Spectrogram Tensor Analysis & Event Classification (Scream, Shout, Bang, Distress)
